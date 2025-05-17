@@ -10,6 +10,8 @@ by Jeffery Myers is marked with CC0 1.0. To view a copy of this license, visit h
 #include "trigonometry_scene.h"
 #include "raylib.h"
 #include "polarscene.h"
+#include "fireworks_scene.h"
+#include "vector_scene.h"
 #include "resource_dir.h"	// utility header for SearchAndSetResourceDir
 
 int main ()
@@ -27,7 +29,9 @@ int main ()
 	Texture wabbit = LoadTexture("wabbit_alpha.png");
 
 	//Scene* scene = new TrigonometryScene("trigonometry", 1280, 720);
-	Scene* scene = new PolarScene("polar", 1280, 720);
+	//Scene* scene = new PolarScene("polar", 1280, 720);
+	//Scene* scene = new FireworksScene("fireworks", 1280, 720);
+	Scene* scene = new VectorScene("vector", 1280, 720);
 	scene->Initialize();
 
 	// game loop

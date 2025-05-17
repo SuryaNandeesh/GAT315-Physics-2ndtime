@@ -34,4 +34,5 @@ protected:
 	Color m_background{ WHITE };
 
 	SceneCamera* m_camera{ nullptr };
+	class World* m_world{ nullptr };
 };
