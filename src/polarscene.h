@@ -5,11 +5,13 @@
 #include <string>
 #include "scene.h"         // Base class
 #include "raylib.h"        // For Color, Vector2
+#include "polar.h"
 
 class PolarScene : public Scene {
 public:
-    PolarScene(const std::string& title, int width, int height, const Color& background = BLACK);
-    ~PolarScene() override;
+    PolarScene(const std::string& title, int width, int height, const Color& background = BLACK) :
+        Scene(title, width, height, background) {
+    }
 
     void Initialize() override;
     void Update() override;
@@ -34,12 +36,8 @@ public:
     };
 
 private:
-    int m_width;
-    int m_height;
     Color m_background{ BLACK };
     CurveType m_currentCurve{ CurveType::Archimedean };
-
-    SceneCamera* m_camera;
 
 };
 

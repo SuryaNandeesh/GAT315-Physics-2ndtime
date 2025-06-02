@@ -8,10 +8,11 @@ by Jeffery Myers is marked with CC0 1.0. To view a copy of this license, visit h
 */
 //#include "vector_scene.h"
 #include "trigonometry_scene.h"
-#include "raylib.h"
 #include "polarscene.h"
 #include "fireworks_scene.h"
 #include "vector_scene.h"
+
+#include "raylib.h"
 #include "resource_dir.h"	// utility header for SearchAndSetResourceDir
 
 int main ()
@@ -34,12 +35,22 @@ int main ()
 	Scene* scene = new VectorScene("vector", 1280, 720);
 	scene->Initialize();
 
+	SetTargetFPS(60);
+	float timeAccum = 0.0f;
+
 	// game loop
 	while (!WindowShouldClose())		// run the loop untill the user presses ESCAPE or presses the Close button on the window
 	{
 		scene->Update();
+		timeAccum += std::min(GetFrameTime(), 0.5f);
+		while (timeAccum >= Scene::fixedTimestep)
+		{
+			scene->FixedUpdate();
+			timeAccum -= Scene::fixedTimestep;
+		}
 		scene->BeginDraw();
 		scene->Draw();
+		scene->DrawGUI();
 		scene->EndDraw();
 	}
 

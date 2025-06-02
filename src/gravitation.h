@@ -1,7 +1,4 @@
 #pragma once
-#include <world.h>
+#include "world.h"
 
-class Gravitation {
-	public:
-		void ApplyGravitation(bodies_t& bodies, float strength);
-};
+void ApplyGravitation(bodies_t& bodies, float strength);

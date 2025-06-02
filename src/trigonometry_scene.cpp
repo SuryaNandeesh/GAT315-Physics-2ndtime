@@ -10,6 +10,11 @@ void TrigonometryScene::Update()
 {
 }
 
+void TrigonometryScene::FixedUpdate()
+{
+
+}
+
 float DegToRad(float degrees)
 {
 	return degrees * (PI / 180.0f);

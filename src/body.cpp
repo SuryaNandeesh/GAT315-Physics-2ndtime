@@ -1,4 +1,5 @@
 #include "body.h"
+#include "integrator.h"
 #include "raymath.h"
 #include <world.h>
 
@@ -15,6 +16,8 @@ void Body::Step(float dt) {
 	position += velocity * dt;
 	velocity *= 1.0f / (1.0f + (damping * dt));
 	velocity += World::gravity * dt;
+
+	SemiImplicitIntegrator(*this, dt);
 }
 
 void Body::Draw(const Scene& scene)
@@ -27,7 +30,19 @@ void Body::Draw(const Scene& scene)
 	DrawCircleV(position, size, color);  // Draw a circle for the firework particle
 }
 
-void Body::ApplyForce(const Vector2& force)
-{
-	this->force += force;
+void Body::ApplyForce(const Vector2& force, ForceMode forceMode) {
+	switch (forceMode) {
+	case Body::ForceMode::Force:
+		this->force += force;
+		break;
+	case Body::ForceMode::Impulse:
+		this->velocity += force * inverseMass;
+		break;
+	case Body::ForceMode::Velocity:
+		this->velocity += force;
+		break;
+	default:
+		break;
+	}
+
 }

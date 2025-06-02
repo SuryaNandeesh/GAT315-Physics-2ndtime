@@ -4,17 +4,6 @@
 #include "rlgl.h"
 #include <vector>
 
-PolarScene::PolarScene(const std::string& title, int width, int height, const Color& background): Scene(title, width, height), // Call base class constructor here!
-	m_width{ width },
-	m_height{ height },
-	m_background{ background }
-{}
-
-PolarScene::~PolarScene()
-{
-    delete m_camera;
-}
-
 void PolarScene::Initialize()
 {
     Vector2 offset = { m_width / 2.0f, m_height / 2.0f };

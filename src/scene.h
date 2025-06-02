@@ -11,6 +11,7 @@ public:
 
 	virtual void Initialize() = 0;
 	virtual void Update() = 0;
+	virtual void FixedUpdate() = 0;
 
 	virtual void BeginDraw();
 	virtual void EndDraw();
@@ -22,10 +23,16 @@ public:
 	void SetCamera(SceneCamera* camera) { m_camera = camera; }
 	SceneCamera* GetCamera() { return m_camera; }
 
+	static constexpr float fixedTimestep = 1.0f / 60.0f;
+
+	friend struct Body;
+	friend struct Spring;
+
 protected:
 	void DrawGrid(float slices, float thickness, const Color& color);
 	void DrawText(const std::string& text, const Vector2& world, int fontSize, Color color);
 	void DrawCircle(const Vector2& world, float radius, Color color);
+	void DrawCircleLine(const Vector2& world, float radius, const Color& color, int pixels = 0) const;
 	void DrawLine(const Vector2& v1, const Vector2& v2, float thickness, Color color);
 
 protected:
