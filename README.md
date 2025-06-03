@@ -1,3 +1,79 @@
+🧪 Physics Simulator
+
+A visual, interactive 2D physics simulation tool built with GUI support. Users can create, manipulate, and simulate static, kinematic, and dynamic bodies—complete with real-time physics, spring constraints, and full simulation control.
+✨ Features
+🧍 Core Simulation Support
+
+    Static Bodies: Immovable; not affected by forces or collisions.
+
+    Kinematic Bodies: Move with defined velocity; unaffected by physics forces.
+
+    Dynamic Bodies: Fully simulated using gravity, collisions, and springs.
+
+⚙️ Per-Object Configuration
+
+Each object can be independently customized with:
+
+    Mass
+
+    Size
+
+    Damping
+
+    Gravity Scale
+
+    Restitution (bounciness)
+
+    Spring system (optional connection)
+
+🔗 Spring Constraints
+
+Connect any two bodies with realistic spring behavior:
+
+    Stiffness (spring constant)
+
+    Damping (resistance over time)
+
+🛠️ Object Management
+
+    Add static, kinematic, or dynamic bodies.
+
+    Customize physics properties for each via the UI panel.
+
+🌐 Global Simulation Controls
+
+    Adjust global simulation parameters:
+
+        Gravity
+
+        Gravitational force
+
+        Spring stiffness multiplier
+
+▶️ Simulation Flow
+
+    Start or Pause the simulation.
+
+    Reset the scene to clear all objects and connections.
+
+🧠 Realistic Physics Behavior
+
+    Dynamic bodies react naturally to:
+
+        Forces
+
+        Collisions
+
+        Gravity
+
+    Spring behavior follows Hooke’s Law with damping.
+
+    Pause freezes the simulation while preserving state.
+
+    Reset returns to a clean slate.
+
+📸 Screenshots
+
 Trigonometry:
 ![githubimgtrig](https://github.com/user-attachments/assets/a88f5d1b-cc12-40b5-8a1d-2964ac0ebb1c)
 
@@ -12,6 +88,14 @@ Vector:
 
 Spring:
 ![githubimgspring](https://github.com/user-attachments/assets/1ad2c1be-1219-41d1-a572-4804598ca2fd)
+
+🧰 Built With
+
+    C++
+
+    raylib – for rendering and input
+
+    Custom physics engine and integrator
 
 
 # Raylib-Quickstart
