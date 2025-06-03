@@ -7,6 +7,7 @@ public:
     FireworksScene(const std::string& name, int width, int height);
     void Initialize() override;
     void Update() override;
+    void FixedUpdate() override;
     void Draw() override;
     void DrawGUI() override;
 

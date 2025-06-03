@@ -15,6 +15,7 @@ public:
 
     void Initialize() override;
     void Update() override;
+    void FixedUpdate();
     void Draw() override;
     void DrawGUI() override;
 

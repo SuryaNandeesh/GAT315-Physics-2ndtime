@@ -24,6 +24,11 @@ void PolarScene::Update()
     if (IsKeyPressed(KEY_FIVE))  m_currentCurve = CurveType::User;
 }
 
+void PolarScene::FixedUpdate()
+{
+	// Fixed update logic if needed
+}
+
 
 void PolarScene::Draw()
 {

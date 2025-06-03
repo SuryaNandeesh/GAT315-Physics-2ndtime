@@ -26,7 +26,7 @@ void Scene::EndDraw()
 	EndDrawing();
 }
 
-void Scene::DrawGrid(float slices, float thickness, const Color& color)
+void Scene::DrawGrid(float slices, float thickness, const Color& color) const
 {
 	for (float i = -slices; i <= slices; i++)
 	{
@@ -35,7 +35,7 @@ void Scene::DrawGrid(float slices, float thickness, const Color& color)
 	}
 }
 
-void Scene::DrawText(const std::string& text, const Vector2& world, int fontSize, Color color)
+void Scene::DrawText(const std::string& text, const Vector2& world, int fontSize, Color color) const
 {
 	Vector2 screen = m_camera->WorldToScreen(world);
 
@@ -46,7 +46,7 @@ void Scene::DrawText(const std::string& text, const Vector2& world, int fontSize
 	rlPopMatrix();
 }
 
-void Scene::DrawCircle(const Vector2& world, float radius, Color color)
+void Scene::DrawCircle(const Vector2& world, float radius, Color color) const
 {
 	DrawCircleV(m_camera->WorldToScreen(world), m_camera->WorldToScreen(radius), color);
 }
@@ -56,7 +56,7 @@ void Scene::DrawCircleLine(const Vector2& world, float radius, const Color& colo
 	DrawCircleLinesV(m_camera->WorldToScreen(world), m_camera->WorldToScreen(radius) + pixels, color);
 }
 
-void Scene::DrawLine(const Vector2& v1, const Vector2& v2, float thickness, Color color)
+void Scene::DrawLine(const Vector2& v1, const Vector2& v2, float thickness, Color color) const 
 {
 	DrawLineEx(m_camera->WorldToScreen(v1), m_camera->WorldToScreen(v2), thickness, color);
 }

@@ -22,6 +22,10 @@ void FireworksScene::Update() {
     }
 }
 
+void FireworksScene::FixedUpdate() {
+	// No fixed update logic needed for fireworks
+}
+
 void FireworksScene::Draw() {
     m_world.Draw(*this);
 }

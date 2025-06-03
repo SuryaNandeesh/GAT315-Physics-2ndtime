@@ -27,7 +27,8 @@ void Body::Draw(const Scene& scene)
 	//	DrawLineV(lastPosition, position, color);  // Draw a line from the last position to the current one
 	//}
 	// Draw the particle itself
-	DrawCircleV(position, size, color);  // Draw a circle for the firework particle
+	scene.DrawCircle(position, size, color);  // Draw a circle at the current position
+	//DrawCircleV(position, size, color);  // Draw a circle for the firework particle
 }
 
 void Body::ApplyForce(const Vector2& force, ForceMode forceMode) {

@@ -1,5 +1,6 @@
 #include "gravitation.h"
 #include "raymath.h"
+#include "body.h"
 
 void ApplyGravitation(bodies_t& bodies, float strength)
 {
@@ -18,7 +19,7 @@ void ApplyGravitation(bodies_t& bodies, float strength)
 			distance = fmaxf(distance, 1.0f);
 
 			//Calculate gravitational force magnitude using:
-			float forceMagnitude = (bodyA->mass * bodyB->mass / (distance * distance)) * strength;
+			float forceMagnitude = ((bodyA->mass * bodyB->mass) / (distance * distance)) * strength;
 
 			//Normalize the direction vector and scale it by the force magnitude
 			Vector2 forceVector = Vector2Normalize(direction) * forceMagnitude;

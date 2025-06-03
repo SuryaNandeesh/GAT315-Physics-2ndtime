@@ -20,7 +20,7 @@ void Collision::CreateContacts(const bodies_t& bodies, contacts_t& contacts)
 				contact.bodyA = bodyA;
 				contact.bodyB = bodyB;
 
-				Vector2 direction = contact.bodyB->position - contact.bodyA->position;
+				Vector2 direction = contact.bodyA->position - contact.bodyB->position;
 				float distanceSqr = Vector2LengthSqr(direction);
 				if (distanceSqr <= EPSILON)
 				{
@@ -30,7 +30,7 @@ void Collision::CreateContacts(const bodies_t& bodies, contacts_t& contacts)
 
 				float distance = sqrtf(distanceSqr);
 				float radius = contact.bodyA->size + contact.bodyB->size;
-				contact.depth = (radius + radius) - distance;
+				contact.depth = radius - distance;
 				contact.normal = Vector2Normalize(direction);
 				contact.restitution = (bodyA->restitution + bodyB->restitution) * 0.5f;
 
@@ -59,7 +59,7 @@ void Collision::ResolveContacts(contacts_t& contacts)
 	for (auto& contact : contacts)
 	{
 		// compute relative velocity
-		Vector2 rv = contact.bodyB->velocity - contact.bodyA->velocity;
+		Vector2 rv = contact.bodyA->velocity - contact.bodyB->velocity;
 
 		// project relative velocity onto the contact normal
 		float nv = Vector2DotProduct(rv, contact.normal);

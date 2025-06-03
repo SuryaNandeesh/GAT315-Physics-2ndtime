@@ -11,6 +11,7 @@ by Jeffery Myers is marked with CC0 1.0. To view a copy of this license, visit h
 #include "polarscene.h"
 #include "fireworks_scene.h"
 #include "vector_scene.h"
+#include "spring_scene.h"
 
 #include "raylib.h"
 #include "resource_dir.h"	// utility header for SearchAndSetResourceDir
@@ -32,7 +33,8 @@ int main ()
 	//Scene* scene = new TrigonometryScene("trigonometry", 1280, 720);
 	//Scene* scene = new PolarScene("polar", 1280, 720);
 	//Scene* scene = new FireworksScene("fireworks", 1280, 720);
-	Scene* scene = new VectorScene("vector", 1280, 720);
+	//Scene* scene = new VectorScene("vector", 1280, 720);
+	Scene* scene = new SpringScene("spring", 1280, 720);
 	scene->Initialize();
 
 	SetTargetFPS(60);
@@ -42,7 +44,7 @@ int main ()
 	while (!WindowShouldClose())		// run the loop untill the user presses ESCAPE or presses the Close button on the window
 	{
 		scene->Update();
-		timeAccum += std::min(GetFrameTime(), 0.5f);
+		timeAccum += std::min(GetFrameTime(), 0.9f);
 		while (timeAccum >= Scene::fixedTimestep)
 		{
 			scene->FixedUpdate();

@@ -35,7 +35,7 @@ void SpringScene::Update() {
 			body->restitution = GUI::restitutionValue;
 			body->damping = GUI::dampingValue;
 
-			body->ApplyForce(randomOnUnitCircle() * 10, Body::ForceMode::Velocity);
+			body->ApplyForce(randomOnUnitCircle() * 2, Body::ForceMode::Velocity);
 		}
 
 		//select body

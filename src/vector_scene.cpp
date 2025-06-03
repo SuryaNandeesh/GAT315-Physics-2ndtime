@@ -22,7 +22,7 @@ void VectorScene::Update() {
 
 	float theta = randf(0, 360);
 
-	if (IsMouseButtonPressed(0))
+	if (!GUI::mouseOverGUI && IsMouseButtonPressed(0))
 	{
 		int pattern = 0;
 
@@ -30,33 +30,18 @@ void VectorScene::Update() {
 
 		for (int i = 0; i < 100; i++)
 		{
-			float angle = 0.0f;
-			float speed = randf(2, 6);
+			Body* body = m_world->CreateBody(position, 0.05f, ColorFromHSV(randf(360), 1, 1));
 
-			switch (pattern)
-			{
-			case 0: // Circular explosion
-				angle = randf(0, 360);
-				break;
+			float offset = randf(-180, 180);
+			float theta = randf(0, 360);
+			float x = cosf((theta + offset) * DEG2RAD);
+			float y = sinf((theta + offset) * DEG2RAD);
 
-			case 1: // Directional burst
-				angle = theta * theta;
-				break;
-
-			case 2: // Spiral
-				angle = i * 7.0f;
-				speed = 0.05f * i + 1.0f;
-				break;
-			}
-
-			float x = cosf(angle);
-			float y = sinf(angle);
-			Vector2 velocity = Vector2{ x, y } *speed;
-
-			Body* body = m_world->CreateBody(position, GUI::sizeValue, ColorFromHSV(randf(360), 1, 1));
-			body->velocity = velocity;
-			body->gravityScale = GUI::gravityScaleValue;
-
+			body->mass = GUI::massValue;
+			body->size = GUI::sizeValue;
+			body->gravityScale = GUI::gravityValue;
+			body->damping = GUI::dampingValue;
+			body->velocity = Vector2{ x, y } *randf(1, 6);
 			body->restitution = GUI::restitutionValue;
 		}
 	}
@@ -86,8 +71,6 @@ void VectorScene::FixedUpdate() {
 	//apply forces
 	m_world->Step(Scene::fixedTimestep);
 }
-
-
 
 void VectorScene::Draw() {
 	m_camera->BeginMode();
