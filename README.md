@@ -1,6 +1,17 @@
-Collison:
+Trigonometry:
+![githubimgtrig](https://github.com/user-attachments/assets/a88f5d1b-cc12-40b5-8a1d-2964ac0ebb1c)
 
-![SNandeesh_raylib_collisionseperation](https://github.com/user-attachments/assets/37a08a5d-5a35-400d-8cc2-801b604a924e)
+Polar:
+![githubimgpolar](https://github.com/user-attachments/assets/b756a175-def3-4c21-89e3-0a642133670e)
+
+Fireworks:
+![snandeesh_raylib_fireworks2](https://github.com/user-attachments/assets/b424e861-dddf-4576-8b66-757f0b238642)
+
+Vector:
+![githubimgvector](https://github.com/user-attachments/assets/7b6e4dd2-54de-495a-be3b-ed51523f67a7)
+
+Spring:
+![githubimgspring](https://github.com/user-attachments/assets/1ad2c1be-1219-41d1-a572-4804598ca2fd)
 
 
 # Raylib-Quickstart
