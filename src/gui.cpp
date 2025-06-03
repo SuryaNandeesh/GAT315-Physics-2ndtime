@@ -23,7 +23,7 @@ void GUI::Draw()
 	if (physicsWindowBoxActive)
 	{
 		physicsWindowBoxActive = !GuiWindowBox(Rectangle{ anchor01.x + 0, anchor01.y + 0, 312, 464 }, "Physics");
-		GuiToggle(Rectangle { anchor01.x + 96, anchor01.y + 424, 120, 24 }, "Simulate", &World::simulate);
+		GuiToggle(Rectangle { anchor01.x + 36, anchor01.y + 432, 120, 24 }, "Simulate", &World::simulate);
 		resetPressed = GuiButton(Rectangle{ anchor01.x + 168, anchor01.y + 432, 120, 24 }, "Reset");
 	
 		GuiGroupBox(Rectangle { anchor02.x + 0, anchor02.y + 0, 256, 184 }, "Body");

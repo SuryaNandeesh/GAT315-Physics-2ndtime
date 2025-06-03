@@ -90,6 +90,7 @@ void VectorScene::Update() {
 			body->position.x = worldAABB.max().x;
 		}
 	}
+	if (GUI::resetPressed) m_world->DestroyAll();
 }
 
 void VectorScene::FixedUpdate() {
