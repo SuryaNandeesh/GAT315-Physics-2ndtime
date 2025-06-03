@@ -64,6 +64,31 @@ void VectorScene::Update() {
 			body->position.x = 9;
 			body->velocity.x *= -body->restitution;
 		}
+
+		AABB aabb = body->GetAABB();
+		AABB worldAABB = m_camera->GetAABB();
+
+		if ((aabb.min().y) < worldAABB.min().y)
+		{
+			float overlap = (worldAABB.min().y - aabb.min().y); // calculate how far the body has penetrated beyond the world boundary
+			body->position.y += 2 * overlap; // move the body back inside the world bounds
+			body->velocity.y *= -body->damping; // multiple by -restituion to scale and flip velocity
+		}
+		else if ((aabb.max().y) > worldAABB.max().y)
+		{
+			float overlap = (worldAABB.max().y - aabb.max().y);  // calculate how far the body has penetrated beyond the world boundary
+			body->position.y += 2 * overlap; // move the body back inside the world bounds
+			body->velocity.y *= -body->damping; // multiple by -restituion to scale and flip velocity
+		}
+
+		if ((aabb.min().x) < worldAABB.min().x)
+		{
+			body->position.x = worldAABB.min().x;
+		}
+		else if (aabb.max().x > worldAABB.max().x)
+		{
+			body->position.x = worldAABB.max().x;
+		}
 	}
 }
 

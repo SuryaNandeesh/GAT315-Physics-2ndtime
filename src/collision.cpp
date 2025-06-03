@@ -1,5 +1,6 @@
 #include "collision.h"
 #include "mathutils.h"
+#include "body.h"
 #include <raymath.h>
 #include <iostream>
 #include <vector_scene.h>
