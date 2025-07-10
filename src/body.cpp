@@ -4,20 +4,16 @@
 #include <world.h>
 
 void Body::Step(float dt) {
-	// Update the position based on velocity and time step
-	//position = Vector2Add(position, Vector2Scale(velocity, dt));
-
 	if (type != Type::Dynamic) return;
 
-	force += (World::gravity * gravityScale)* mass;  // Reset acceleration to gravity
-	acceleration = (force * inverseMass);
+	// Apply gravity and forces
+	force += (World::gravity * gravityScale) * mass;
+	acceleration = force * inverseMass;
+	
+	// Use semi-implicit Euler integration
 	velocity += acceleration * dt;
-
 	position += velocity * dt;
 	velocity *= 1.0f / (1.0f + (damping * dt));
-	velocity += World::gravity * dt;
-
-	SemiImplicitIntegrator(*this, dt);
 }
 
 void Body::Draw(const Scene& scene)

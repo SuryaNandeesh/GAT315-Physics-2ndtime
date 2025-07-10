@@ -11,6 +11,7 @@ Scene::Scene(const std::string& title, int width, int height, const Color& backg
 
 Scene::~Scene()
 {
+	delete m_camera;
 	CloseWindow();
 }
 

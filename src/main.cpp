@@ -12,6 +12,8 @@ by Jeffery Myers is marked with CC0 1.0. To view a copy of this license, visit h
 #include "fireworks_scene.h"
 #include "vector_scene.h"
 #include "spring_scene.h"
+#include "angry_birds_scene.h"
+//#include "pool_scene.h"
 
 #include "raylib.h"
 #include "resource_dir.h"	// utility header for SearchAndSetResourceDir
@@ -34,7 +36,8 @@ int main ()
 	//Scene* scene = new PolarScene("polar", 1280, 720);
 	//Scene* scene = new FireworksScene("fireworks", 1280, 720);
 	//Scene* scene = new VectorScene("vector", 1280, 720);
-	Scene* scene = new SpringScene("spring", 1280, 720);
+	//Scene* scene = new SpringScene("spring", 1280, 720);
+	Scene* scene = new AngryBirdsScene("angry_birds", 1280, 720);
 	scene->Initialize();
 
 	SetTargetFPS(60);
@@ -57,10 +60,7 @@ int main ()
 	}
 
 	// cleanup
-	// unload our texture so it can be cleaned up
-	UnloadTexture(wabbit);
-
-	// destroy the window and cleanup the OpenGL context
+	delete scene;
 	CloseWindow();
 	return 0;
 }
